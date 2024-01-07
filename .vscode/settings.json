@@ -1,0 +1,10 @@
+{
+	"files.autoSave": "afterDelay",
+	"javascript.format.semicolons": "insert",
+	"files.autoSaveDelay": 500,
+	"editor.formatOnSave": true,
+	"editor.formatOnType": true,
+	"editor.formatOnPaste": true,
+	"prettier.useTabs": true,
+	"typescript.format.semicolons": "insert"
+}
