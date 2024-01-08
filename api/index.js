@@ -18,7 +18,9 @@ const bcryptSalt = bcrypt.genSaltSync(10);
 
 
 const app = express();
-//start here dummy
+
+app.use('/uploads', express.static(__dirname + '/uploads'))
+
 app.use(express.json());
 app.use(cookieParser());
 
@@ -181,30 +183,36 @@ wss.on('connection', (connection, req) => {
     connection.on('message', async (message) => {
         const messageData = JSON.parse(message.toString());
         const { receipient, text, file } = messageData;
+        let filname = null;
 
         if (file) {
             const parts = file.name.split('.');
             const ext = parts[parts.length - 1];
-            const filename = Date.now() + '.' + ext;
+            filename = Date.now() + '.' + ext;
             const path = __dirname + '/uploads/' + filename;
-            const bufferData = new Buffer(file.data, 'base64');
+            const bufferData = new Buffer(file.data.split(',')[1], 'base64');
             fs.writeFile(path, bufferData, () => {
                 console.log('file saved: ' + path);
             });
         }
 
-        if (receipient && text) {
+        if (receipient && (text || file)) {
             const messageDoc = await Message.create({
                 sender: connection.userId,
                 receipient,
                 text,
+                file: file ? filename : null,
             });
+
+            // console.log('created message');
+
             [...wss.clients]
                 .filter(c => c.userId === receipient)
                 .forEach(c => c.send(JSON.stringify({
                     text,
                     sender: connection.userId,
                     receipient,
+                    file: file ? filename : null,
                     _id: messageDoc._id,
                 })));
         }
