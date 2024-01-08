@@ -26,7 +26,7 @@ app.use(cookieParser());
 
 app.use(cors({
     credentials: true,
-    origin: 'https://curious-kheer-4e5ff7.netlify.app',
+    origin: 'https://zingy-cranachan-e57d02.netlify.app',
 }));
 
 async function getUserDataFromRequest(req) {
