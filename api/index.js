@@ -13,7 +13,7 @@ const fs = require('fs');
 
 require('dotenv').config();
 mongoose.connect(process.env.MONGO_URL);
-const jwtSecret = process.env.JWT_SECRET;
+const jwtSecret = process.env.JWT_SECRET || 'jdflhsjhfweijdsknxchjufdsj;leuroiufndshfdigdnuiwejsbdhfsdnsbsduik';
 const bcryptSalt = bcrypt.genSaltSync(10);
 
 
