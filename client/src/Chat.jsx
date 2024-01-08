@@ -21,7 +21,7 @@ export default function Chat() {
 	}, []);
 
 	function connectToWs() {
-		const ws = new WebSocket("wss://chat-app-api-chi.vercel.app:4040");
+		const ws = new WebSocket("wss://chat-app-api-chi.vercel.app");
 		setWs(ws);
 
 		ws.addEventListener("message", handleMessage);
