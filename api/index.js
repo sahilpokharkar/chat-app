@@ -26,7 +26,7 @@ app.use(cookieParser());
 
 app.use(cors({
     credentials: true,
-    origin: 'https://zingy-cranachan-e57d02.netlify.app',
+    origin: 'https://chat-app-nine-omega.vercel.app',
 }));
 
 async function getUserDataFromRequest(req) {
