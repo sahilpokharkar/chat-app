@@ -26,7 +26,7 @@ app.use(cookieParser());
 
 app.use(cors({
     credentials: true,
-    origin: process.env.CLIENT_URL || 'https://chat-app-nine-omega.vercel.app/',
+    origin: process.env.CLIENT_URL || 'https://chat-app-nine-omega.vercel.app',
 }));
 
 async function getUserDataFromRequest(req) {
