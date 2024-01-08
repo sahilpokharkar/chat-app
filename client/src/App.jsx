@@ -5,7 +5,7 @@ import { UserContextProvider } from "./UserContext";
 import Routes from "./Routes";
 
 function App() {
-	axios.defaults.baseURL = "http://localhost:4040";
+	axios.defaults.baseURL = "https://chat-app-api-chi.vercel.app/";
 	axios.defaults.withCredentials = true;
 	
 
