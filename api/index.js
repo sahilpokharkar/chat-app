@@ -26,7 +26,7 @@ app.use(cookieParser());
 
 app.use(cors({
     credentials: true,
-    origin: 'https://secure-mern-chat.vercel.app/',
+    origin: 'https://secure-mern-chat.vercel.app',
 }));
 
 async function getUserDataFromRequest(req) {
